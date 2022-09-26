@@ -58,12 +58,7 @@ start.addEventListener("click", (event) => {
          
       })
 
-      lap.addEventListener("click", (event) => {
-         let newLap = document.createElement("div");
-         newLap.classList.add("lap")
-         newLap.innerHTML = `${hrs.innerHTML}:${min.innerHTML}:${sec.innerHTML}:${milisec.innerHTML}`;
-         laps.append(newLap)
-      })
+
 
       stop.addEventListener("click", (event) => {
          clearInterval(timeId);
@@ -77,7 +72,12 @@ start.addEventListener("click", (event) => {
 
 })
 
-
+lap.addEventListener("click", (event) => {
+   let newLap = document.createElement("div");
+   newLap.classList.add("lap")
+   newLap.innerHTML = `${hrs.innerHTML}:${min.innerHTML}:${sec.innerHTML}:${milisec.innerHTML}`;
+   laps.append(newLap)
+})
 
 
 function setToNull() {
