@@ -67,7 +67,10 @@ start.addEventListener("click", (event) => {
          pause.remove();
          start.innerHTML = "Старт";
          btns.prepend(start);
-         
+         let laping = laps.children
+         for (let lap of laping) {
+            lap.remove();
+         }
       })
 
 })
