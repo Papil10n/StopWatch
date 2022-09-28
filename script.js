@@ -20,11 +20,11 @@ start.addEventListener("click", (event) => {
    let s = sec.innerHTML;
    let m = min.innerHTML;
    let h = hrs.innerHTML;
-   let timeId = setInterval(time, 100);
+   let timeId = setInterval(time, 10);
 
    function time() {
       ms++;
-      if (ms > 9) {
+      if (ms > 99) {
          ms = 0;
          s++;
       }
@@ -37,8 +37,8 @@ start.addEventListener("click", (event) => {
          h++;
       }
 
-      milisec.innerHTML = ms;
-      sec.innerHTML = s;
+      ms > 9 ? milisec.innerHTML = ms : milisec.innerHTML = "0" + ms;
+      sec.innerHTML = s;      
       min.innerHTML = m;
       hrs.innerHTML = h;
 
