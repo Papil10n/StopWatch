@@ -97,12 +97,13 @@ lap.addEventListener("click", (event) => {
 })
 
 
-function setToNull() {
+const setToNull = () => {
    milisec.innerHTML = "0";
    sec.innerHTML = "00";
    min.innerHTML = "00";
    hrs.innerHTML = "00";
    progress.value = 0;
+   barCount = 0;
 }
 
 const progressBar = () => {
