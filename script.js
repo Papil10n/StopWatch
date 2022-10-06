@@ -9,7 +9,9 @@ const start = document.querySelector(".start");
 const pause = document.querySelector(".pause");
 const lap = document.querySelector(".lapb");
 const stop = document.querySelector(".reset");
+const progress = document.getElementById("progressbar");
 let count = 0;
+let barCount = 0;
 
 pause.remove()
 lap.disabled = true;
@@ -21,9 +23,11 @@ start.addEventListener("click", (event) => {
    let m = min.innerHTML;
    let h = hrs.innerHTML;
    let timeId = setInterval(time, 10);
+   let progressTime = setInterval(progressBar, 1);
 
    function time() {
       ms++;
+
       if (ms > 99) {
          ms = 0;
          s++;
@@ -38,48 +42,50 @@ start.addEventListener("click", (event) => {
       }
 
       ms > 9 ? milisec.innerHTML = ms : milisec.innerHTML = "0" + ms;
-      sec.innerHTML = s;      
+      sec.innerHTML = s;
       min.innerHTML = m;
       hrs.innerHTML = h;
 
    }
 
-      stop.disabled = false;
-      lap.disabled = false;
-      start.remove();
-      btns.prepend(pause);
+   stop.disabled = false;
+   lap.disabled = false;
+   start.remove();
+   btns.prepend(pause);
 
-      pause.addEventListener("click", (event) =>  {
-         clearInterval(timeId);
-         lap.disabled = true;
-         btns.prepend(start);
-         pause.remove();
-         start.innerHTML = 'Продолжить';
-         
-      })
+   pause.addEventListener("click", (event) => {
+      clearInterval(timeId);
+      clearInterval(progressTime);
+      lap.disabled = true;
+      btns.prepend(start);
+      pause.remove();
+      start.innerHTML = 'Продолжить';
+
+   })
 
 
 
-      stop.addEventListener("click", (event) => {
-         clearInterval(timeId);
-         setToNull();
-         lap.disabled = true;
-         pause.remove();
-         start.innerHTML = "Старт";
-         btns.prepend(start);
-         const lapsi = document.getElementById("lap-wrapper");
-            let laping = lapsi.children;
-            for (let i of laping) {
-               i.remove();
-            }
-            for (let i of laping) {
-               i.remove();
-            }
-            for (let i of laping) {
-               i.remove();
-            }
-            
-      })
+   stop.addEventListener("click", (event) => {
+      clearInterval(timeId);
+      clearInterval(progressTime);
+      setToNull();
+      lap.disabled = true;
+      pause.remove();
+      start.innerHTML = "Старт";
+      btns.prepend(start);
+      const lapsi = document.getElementById("lap-wrapper");
+      let laping = lapsi.children;
+      for (let i of laping) {
+         i.remove();
+      }
+      for (let i of laping) {
+         i.remove();
+      }
+      for (let i of laping) {
+         i.remove();
+      }
+
+   })
 
 })
 
@@ -96,4 +102,15 @@ function setToNull() {
    sec.innerHTML = "00";
    min.innerHTML = "00";
    hrs.innerHTML = "00";
+   progress.value = 0;
+}
+
+const progressBar = () => {
+   if (progress.value === 150) {
+      progress.value = 0;
+      barCount = 0;
+   }
+   let result = (barCount / 100).toFixed(2);
+   barCount++;
+   progress.value = result;
 }

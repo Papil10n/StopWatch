@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,14 +8,20 @@
    <title>StopWatch</title>
    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
    <div class="stopWatch__wrapper">
+
       <div class="stopWatch__title">Секундомер</div>
+
       <div class="stopWatch__time">
          <span class="hours nums">00</span>
          <span class="minutes nums">00</span>
          <span class="seconds nums">00</span>
          <span class="miliseconds nums">00</span>
+      </div>
+      <div class="progress__bar">
+         <progress id="progressbar" value="0" max="150"></progress>
       </div>
       <div class="stopWatch__btns">
          <button class="start btn">Старт</button>
@@ -25,8 +32,9 @@
       <div class="stopWatch__lap-wripper" id="lap-wrapper"></div>
    </div>
 
-  
-   
+
+
    <script src="script.js"></script>
 </body>
+
 </html>
