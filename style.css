@@ -1,60 +1,48 @@
 body {
    color: #ddd;
-   background-color: #222;
+   background-color: #333548;
 }
 .stopWatch__wrapper {
    margin-top: 80px;
    text-align: center;
 }
 .stopWatch__title {
-   font-size: 45px;
+   color: white;
+   font-size: 65px;
    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
    margin-bottom: 45px;
-}
-.progress__bar {
-   display: inline-block;
-   width: 700px;
-      border-radius: 3px;
-      border: none;
-      background-color: #222;
-      box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, .2);
-   transition: all 0.3s ease 0s;
-      margin-bottom: 40px;
-
+   text-shadow: rgb(0, 0, 0) 0px 0px 5px;
 }
 
-.progress__bar progress {
-   border: none;
-   background-color: #ff0000;
-   width: 98%;
-   border-radius: 9px;
-   height: 6px;
-   transition: all 0.3s ease 0s;
+.stopWatch__time {
+   font-size: 70px;
+   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+   margin-bottom: 55px;
+}
 
-} 
 @media (max-width: 1020px) {
-   .progress__bar {
-      width: 450px;
+   .stopWatch__title {
+         font-size: 45px;
+   }
+   .stopWatch__time {
+      font-size: 40px;
    }
 }
 
 @media (max-width: 600px) {
-   .progress__bar {
-      width: 290px;
+   .stopWatch__title {
+      font-size: 45px;
    }
+   .stopWatch__time {
+      font-size: 40px;
+   }
+}
 
-   .progress__bar progress {
-      height: 5px;
-   }
-}
-.stopWatch__time {
-   font-size: 40px;
-   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-   margin-bottom: -5px;
-}
 .hours {
 }
 .nums {
+   color: #D8AB00;
+   text-shadow: rgba(255, 204, 0, 0.774) 1px 0 5px;
 }
 .minutes {
 }
@@ -64,13 +52,18 @@ body {
    font-size: 15px;
 }
 .stopWatch__btns button{
+   background-color: #333548;
+   color: #D8AB00;
+   border: 2px solid #D8AB00;
    font-size: 16px;
-   padding: 5px 20px;
-   border-radius: 5px;
+   padding: 7px 20px;
+   border-radius: 25px;
    margin-inline: 10px;
+   padding-bottom: 10px;
 }
 .stopWatch__btns button:active {
-   opacity: 0.5;
+   background-color: #D8AB00;
+   color: #333548;
 }
 .start {
 }
@@ -81,9 +74,12 @@ body {
 .reset {
 }
 .stopWatch__lap-wripper {
+   font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+   letter-spacing: 1px;
    margin-inline: 30%;
    border-radius: 30px;
    padding: 10px;
    margin-top: 50px;
    font-size: 22px;
+   color: #AF8C01;
 }

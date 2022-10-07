@@ -11,9 +11,8 @@ const lap = document.querySelector(".lapb");
 const stop = document.querySelector(".reset");
 const progress = document.getElementById("progressbar");
 let count = 0;
-let barCount = 0;
 
-pause.remove()
+pause.remove();
 lap.disabled = true;
 stop.disabled = true;
 
@@ -23,7 +22,6 @@ start.addEventListener("click", (event) => {
    let m = min.innerHTML;
    let h = hrs.innerHTML;
    let timeId = setInterval(time, 10);
-   let progressTime = setInterval(progressBar, 1);
 
    function time() {
       ms++;
@@ -55,7 +53,6 @@ start.addEventListener("click", (event) => {
 
    pause.addEventListener("click", (event) => {
       clearInterval(timeId);
-      clearInterval(progressTime);
       lap.disabled = true;
       btns.prepend(start);
       pause.remove();
@@ -67,7 +64,6 @@ start.addEventListener("click", (event) => {
 
    stop.addEventListener("click", (event) => {
       clearInterval(timeId);
-      clearInterval(progressTime);
       setToNull();
       lap.disabled = true;
       pause.remove();
@@ -91,27 +87,17 @@ start.addEventListener("click", (event) => {
 
 lap.addEventListener("click", (event) => {
    let newLap = document.createElement("div");
-   newLap.classList.add("lap")
-   newLap.innerHTML = `${hrs.innerHTML}:${min.innerHTML}:${sec.innerHTML}:${milisec.innerHTML}`;
+   newLap.classList.add("lap");
+   let secs = sec.innerHTML.toString().length === 2 ? sec.innerHTML : "0" + sec.innerHTML;
+   newLap.innerHTML = `${hrs.innerHTML}:${min.innerHTML}:${secs}:${milisec.innerHTML}`;
    laps.append(newLap)
 })
 
 
 const setToNull = () => {
-   milisec.innerHTML = "0";
+   milisec.innerHTML = "00";
    sec.innerHTML = "00";
    min.innerHTML = "00";
    hrs.innerHTML = "00";
-   progress.value = 0;
    barCount = 0;
-}
-
-const progressBar = () => {
-   if (progress.value === 150) {
-      progress.value = 0;
-      barCount = 0;
-   }
-   let result = (barCount / 100).toFixed(2);
-   barCount++;
-   progress.value = result;
 }
